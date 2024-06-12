@@ -26,6 +26,6 @@ public class Avion {
             case WEST:
                 return R.mipmap.west;
         }
-        return R.mipmap.north; //alor por defecto
+        return R.mipmap.north; //valor por defecto
     }
 }

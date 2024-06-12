@@ -25,12 +25,13 @@ public class Plano {
             if (avion.x > tmpX) {
                 tmpX = avion.x;
             }
-            if (avion.y > tmpX) {
+            if (avion.y > tmpY) {
                 tmpY = avion.y;
             }
         }
         col = tmpX;
         row = tmpY;
+
     }
 
     //genera una representación completa del plano en forma de una lista (ArrayList) llamada fullGrid
@@ -61,6 +62,7 @@ public class Plano {
                 }
             }
         }
+
         return fullGrid;
     }
 }
