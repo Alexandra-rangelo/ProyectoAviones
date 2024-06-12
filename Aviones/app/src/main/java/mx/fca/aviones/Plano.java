@@ -1,24 +1,18 @@
 package mx.fca.aviones;
 
-import android.util.Log;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Plano {
 
     public ArrayList<Avion> aviones;
-
     public ArrayList<Colision> colisiones;
-
     public int col;
-
     public int row;
-
     public int noPaso;
 
     // Constructor
     Plano(int noPaso, ArrayList<Avion> aviones, ArrayList<Colision> colisiones) {
-
         this.noPaso = noPaso;
         this.aviones = aviones;
         this.colisiones = colisiones;
@@ -35,28 +29,35 @@ public class Plano {
         }
         col = tmpX;
         row = tmpY;
-
-        Log.i("Aviones max de columna", String.valueOf(col));
-        Log.i("Aviones max de renglon", String.valueOf(row));
     }
 
-    public Plano next() {
-        Log.i("Cristian", String.valueOf(noPaso));
-        noPaso += 1;
-        return Analizador.next(noPaso, this);
-    }
+    public ArrayList<Object> getFullGrid() {
+        HashMap<String, Object> grid = new HashMap<>();
 
-    public Plano prev() {
-        // Tu vas a implementar
-        noPaso -= 1;
-        return null;
-    }
+        // Agregar aviones al grid
+        for (Avion avion : aviones) {
+            String key = avion.x + "," + avion.y;
+            grid.put(key, avion);
+        }
 
-    public int getNumeroColisiones() {
-        return colisiones.toArray().length;
-    }
+        // Agregar colisiones al grid
+        for (Colision colision : colisiones) {
+            String key = colision.x + "," + colision.y;
+            grid.put(key, colision);
+        }
 
-    public int getNumeroAviones() {
-        return aviones.toArray().length;
+        // Crear una lista completa con todos los elementos en el grid
+        ArrayList<Object> fullGrid = new ArrayList<>();
+        for (int y = 0; y <= row; y++) {
+            for (int x = 0; x <= col; x++) {
+                String key = x + "," + y;
+                if (grid.containsKey(key)) {
+                    fullGrid.add(grid.get(key));
+                } else {
+                    fullGrid.add(null);
+                }
+            }
+        }
+        return fullGrid;
     }
 }

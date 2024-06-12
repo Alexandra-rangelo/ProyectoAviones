@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="imgColision" type="id" />
+    <item name="imgElemento" type="id" />
+</resources>
