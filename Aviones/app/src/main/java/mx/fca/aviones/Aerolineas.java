@@ -2,7 +2,7 @@ package mx.fca.aviones;
 
 import java.util.ArrayList;
 
-public class Aerolineas {
+public class Aerolineas { //se define una clase
 
     public static ArrayList<Avion> AEROMEXICO(){
         ArrayList<Avion> aviones = new ArrayList<>();
@@ -30,5 +30,8 @@ public class Aerolineas {
         aviones.add(new Avion(Direccion.WEST, 1, 7));
 
         return aviones;
+        //el método AEROMEXICO devuelve la lista aviones,
+        // que contiene todos los aviones creados con sus
+        // respectivas direcciones y coordenadas.
     }
 }

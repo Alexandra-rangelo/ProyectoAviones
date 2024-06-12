@@ -12,7 +12,7 @@ import java.util.ArrayList;
 //todo estos es agregado
 
 public class PlanoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
+    //Declara dos listas de aviones y colisiones y un constructor para inicializarlas.
     private final ArrayList<Avion> aviones;
     private final ArrayList<Colision> colisiones;
 
@@ -20,7 +20,8 @@ public class PlanoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.aviones = aviones;
         this.colisiones = colisiones;
     }
-
+    //determina el tipo de vista que se debe mostrar en una posición específica. Devuelve 1 si hay una colisión en la posición dada,
+    // de lo contrario, devuelve 0 para indicar que hay un avión.
     @Override
     public int getItemViewType(int position) {
         // Return 1 for collisions, 0 for planes
@@ -32,6 +33,7 @@ public class PlanoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return 0;
     }
 
+    //Este método crea y devuelve un nuevo ViewHolder
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,6 +47,7 @@ public class PlanoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
     }
 
+    //Configura la vista correspondiente con los datos adecuados según el tipo de vista (avión o colisión).
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof AvionHolder) {
@@ -54,13 +57,13 @@ public class PlanoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             ((ColisionHolder) holder).imgColision.setImageResource(R.mipmap.collision);
         }
     }
-
+    //devuelve el número total de elementos en la lista de aviones, que es el tamaño de la lista de aviones.
     @Override
     public int getItemCount() {
         return aviones.size();
     }
 }
-
+//mantener referencias a las vistas de un elemento de la lista que representa una colisión.
 class ColisionHolder extends RecyclerView.ViewHolder {
     ImageView imgColision;
 

@@ -12,6 +12,8 @@ public class Plano {
     public int noPaso;
 
     // Constructor
+    // inicializa sus atributos con los valores proporcionados. Calcula el número máximo de columnas (col) y filas (row)
+    // en función de las coordenadas de los aviones presentes en el plano.
     Plano(int noPaso, ArrayList<Avion> aviones, ArrayList<Colision> colisiones) {
         this.noPaso = noPaso;
         this.aviones = aviones;
@@ -31,8 +33,9 @@ public class Plano {
         row = tmpY;
     }
 
-    public ArrayList<Object> getFullGrid() {
-        HashMap<String, Object> grid = new HashMap<>();
+    //genera una representación completa del plano en forma de una lista (ArrayList) llamada fullGrid
+    public ArrayList<Object> getFullGrid() { //representar visualmente el estado del plano en una interfaz de usuario, como una cuadrícula.
+        HashMap<String, Object> grid = new HashMap<>(); // mapear las posiciones
 
         // Agregar aviones al grid
         for (Avion avion : aviones) {
